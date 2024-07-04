@@ -1,5 +1,5 @@
 import 'package:bloc_tutorial/cubit/counter_cubit.dart';
-import 'package:bloc_tutorial/home_screen.dart';
+import 'package:bloc_tutorial/features/home/screen/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -20,7 +20,8 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const MyHomePage(title: 'Flutter Demo Home Page'),
+        debugShowCheckedModeBanner: false,
+        home: const HomeScreen(),
       ),
     );
   }
