@@ -39,7 +39,7 @@ class GroceryTile extends StatelessWidget {
                   style: const TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w900,
-                    fontSize: 25,
+                    fontSize: 25
                   ),
                 ),
                 Row(
