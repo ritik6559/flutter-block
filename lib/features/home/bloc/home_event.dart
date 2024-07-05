@@ -5,12 +5,20 @@ sealed class HomeEvent {}
 
 //this file contains all the even that takes place on a screen like button click event.
 
-class HomeInitialEvent extends HomeEvent{}
+class HomeInitialEvent extends HomeEvent {}
 
-class AddToWishlistEvent extends HomeEvent{}
+class AddToWishlistEvent extends HomeEvent {
+  final GroceryItem products;
 
-class AddToCartEvent extends HomeEvent{}
+  AddToWishlistEvent({required this.products});
+}
 
-class NavigateToWishlistScreenEvent extends HomeEvent{}
+class AddToCartEvent extends HomeEvent {
+  final GroceryItem products;
 
-class NavigateToCartScreenEvent extends HomeEvent{}
+  AddToCartEvent({required this.products});
+}
+
+class NavigateToWishlistScreenEvent extends HomeEvent {}
+
+class NavigateToCartScreenEvent extends HomeEvent {}

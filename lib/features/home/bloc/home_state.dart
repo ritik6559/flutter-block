@@ -24,3 +24,9 @@ class HomeErrorState extends HomeState {}
 class HomeNavigateToWishlistScreen extends HomeActionState {}
 
 class HomeNavigateToCartScreen extends HomeActionState {}
+
+class ProductAddedtoWishlist extends HomeActionState{}
+
+class ProductAddedtoCart extends HomeActionState{}
+
+

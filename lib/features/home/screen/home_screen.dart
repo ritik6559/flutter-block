@@ -41,6 +41,18 @@ class _HomeScreenState extends State<HomeScreen> {
               builder: (context) => const WishlistScreen(),
             ),
           );
+        } else if (state is ProductAddedtoCart) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text("Item added to cart"),
+            ),
+          );
+        } else if (state is ProductAddedtoWishlist) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text("Item added to wishlist"),
+            ),
+          );
         }
       },
       builder: (context, state) {
@@ -88,7 +100,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       itemCount: successState.products.length,
                       itemBuilder: (context, index) {
                         return GroceryTile(
-                            groceryItem: successState.products[index]);
+                          groceryItem: successState.products[index],
+                          homeBloc: homeBloc,
+                        );
                       }),
                 ),
               ),

@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:bloc_tutorial/data/cart_item.dart';
 import 'package:bloc_tutorial/data/data.dart';
+import 'package:bloc_tutorial/data/wishlist_item.dart';
 import 'package:bloc_tutorial/features/home/model/grocery_item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
@@ -25,8 +27,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     //if we have our database then it will take some time to load data thus we will a progress indicator.
     emit(HomeLoadingState());
     await Future.delayed(const Duration(seconds: 3));
-    emit(HomeLoadedSuccesState(
-        products: dummyGroceryItems));
+    emit(HomeLoadedSuccesState(products: dummyGroceryItems));
   }
 
   FutureOr<void> navigateToWishlistScreenEvent(
@@ -41,10 +42,12 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   FutureOr<void> addToWishlistEvent(
       AddToWishlistEvent event, Emitter<HomeState> emit) {
-    print("add to wishlist");
+    WishlistItem.wishlist.add(event.products);
+    emit(ProductAddedtoWishlist());
   }
 
   FutureOr<void> addToCartEvent(AddToCartEvent event, Emitter<HomeState> emit) {
-    print("add to cart ");
+    CartItem.cart.add(event.products);
+    emit(ProductAddedtoCart());
   }
 }
